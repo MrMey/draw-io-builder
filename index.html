@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title>Draw Io Builder</title>
+        <script type="text/javascript" src="generate.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no">
+    </head>
+    
+    <body>
+        <div class="row">
+            <div class="column">
+                <h1>Draw IO CSV Inputs</h1>
+                <h2>Fields</h2>
+                <label for="input_field">Add a field</label>
+                <br />
+                
+                <input type="text" id="input_field" name="input_field">
+                <button id="button_add_field" onclick="AddFieldFromInput()">+</button>
+
+                <label for="input_csv">Or paste csv</label>
+                <br />
+                <textarea id="input_csv" name="input_csv" rows="12" cols="50"></textarea>
+                <br/>
+                <button id="button_add_csv" onclick="AddCsv()">Submit</button>
+                
+                <ul id="field_list"></ul>
+                <h2>Style</h2>
+
+                                
+                <label for="input_label">label</label>
+                <input type="text" id="input_label" name="input_label" list="input_label_suggestion" onclick="SuggestFields('input_label_suggestion')"> 
+                <datalist id="input_label_suggestion"></datalist>
+                <br />
+
+                <label for="input_shape">shape</label>
+                <input type="text" id="input_shape" name="input_shape" list="input_shape_suggestion" value="rectangle" onclick="SuggestFields('input_shape_suggestion')"> 
+                <datalist id="input_shape_suggestion"></datalist>
+                <br />
+
+                <label for="input_fillColor">fillColor</label>
+                <input type="text" id="input_fillColor" name="input_fillColor" list="input_fillColor_suggestion" value="#dae8fc" onclick="SuggestFields('input_fillColor_suggestion')">
+                <datalist id="input_fillColor_suggestion"></datalist>
+                <br />
+
+                <label for="input_strokeColor">strokeColor</label>
+                <input type="text" id="input_strokeColor" name="input_strokeColor" list="input_strokeColor_suggestion" value="#dae8fc"  onclick="SuggestFields('input_strokeColor_suggestion')">
+                <datalist id="input_strokeColor_suggestion"></datalist>
+                <br />
+
+                <label for="input_from">from</label>
+                <input type="text" id="input_from" list="input_from_suggestion" name="input_from" onclick="SuggestFields('input_from_suggestion')">
+                <datalist id="input_from_suggestion"></datalist>
+                <br />
+
+                <label for="input_to">to</label>
+                <input type="text" id="input_to" list="input_to_suggestion" name="input_to" onclick="SuggestFields('input_to_suggestion')">
+                <datalist id="input_to_suggestion"></datalist>
+                <br />
+
+                <label for="input_invert">invert</label>
+                <select name="input_invert" id="input_invert">
+                  <option value="true">True</option>
+                  <option value="false">False</option>
+                </select> 
+                <br />
+
+                <label for="input_style">style</label>
+                <input type="text" id="input_style" name="input_style" value="curved=0;endArrow=blockThin;endFill=1;">
+                <br />
+
+                <label for="input_width">width</label>
+                <input type="text" id="input_width" name="input_width" value=80>
+                <br />
+
+                <label for="input_heigth">heigth</label>
+                <input type="text" id="input_heigth" name="input_heigth" value=80>
+                <br />
+
+                <label for="input_padding">padding</label>
+                <input type="text" id="input_padding" name="input_padding" value=15>
+                <br />
+
+                <label for="input_nodespacing">nodespacing</label>
+                <input type="text" id="input_nodespacing" name="input_nodespacing" value=40>
+                <br />
+
+                <label for="input_levelspacing">levelspacing</label>
+                <input type="text" id="input_levelspacing" name="input_levelspacing" value=40>
+                <br />
+
+                <label for="input_edgespacing">edgespacing</label>
+                <input type="text" id="input_edgespacing" name="input_edgespacing" value=40>
+                <br />
+                
+                <label for="input_layout">layout</label>
+                <select name="input_layout" id="input_layout">
+                    <option value="horizontaltree">horizontaltree</option>
+                    <option value="verticaltree">verticaltree</option>
+                </select>
+                <br />
+                
+                <button id="convert_button" onclick="Generate()">Generate</button>
+            </div>
+
+        <div class="column">
+            <div id="output">
+            </div>
+        </div>
+    </div>
+        
+    </body>
+</html>
